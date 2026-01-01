@@ -43,21 +43,23 @@ Video: Realtime cleaning map using dorita980 lib in [rest980](https://github.com
 | Clean/Start/Stop/Pause/Dock/Resume/CleanRoom/Find| yes         | yes           | yes           | pending | yes    |
 | Get Preferences                             | yes         | yes           | yes           | pending | yes    |
 | Set Preferences                             | yes         | yes           | yes           | pending | yes    |
-| Get x,y,d Position                          | yes         | yes           | yes           | pending | -      |
+| Get x,y,d Position                          | yes         | yes           | no           | partial | -      |
 | Get Mission                                 | yes         | yes           | yes           | pending | yes    |
 | Get Mission number                          | no          | no            | yes           | pending | yes    |
 | Get General Info                            | yes         | yes           | yes           | pending | yes    |
-| Get Schedule                                | yes         | yes           | yes           | pending | yes    |
-| Set Schedule                                | yes         | yes           | yes           | pending | yes    |
+| Get Schedule                                | yes         | yes           | no           | pending | yes    |
+| Set Schedule                                | yes         | yes           | no           | pending | yes    |
 | Set CarpetBoost (performance, eco, auto)    | yes         | yes           | yes           | pending | -      |
 | Set Edge Clean                              | yes         | yes           | yes           | pending | -      |
 | Set Cleaning Passes (auto, on, two)         | yes         | yes           | yes           | pending | -      |
-| set Always Finish                           | yes         | yes           | yes           | pending | -      |
-| MQTT Custom events                          | -           | -             | yes           | pending | yes    |
+| Set Always Finish                           | yes         | yes           | yes           | pending | -      |
+| MQTT Custom events                          | -           | -             | yes           | yes* | yes    |
 | HTTP API                                    | yes         | yes           | -             | -       | -      |
-| Discovery Robot IP                          | yes         | -             | yes           | -       | yes    |
-| Get BLID and Password                       | yes         | -             | yes           | -       | yes    |
-| Support multiples clients at the same time  | yes         | yes           | no            | pending | no     |
+| Discovery Robot IP                          | yes         | -             | yes           | yes       | yes    |
+| Get BLID and Password                       | yes         | -             | yes           | yes       | yes    |
+| Support multiples clients at the same time  | yes         | yes           | no            | no | no     |
+
+*: On v2.x.x Cloud, you may send any MQTT event, but due to how iRobot's AWS IoT setup works, your client will be disconnected if you send a message that isnt exactly formatted how they like. You also may not subscribe to any new topics (or you will face disconnection).
 
 Note: some new firmwares are not reporting robot position ('pose' property) to local env.
 
